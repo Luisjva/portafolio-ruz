@@ -49,10 +49,7 @@ export default function Nav() {
                 eu tempus velit. Vestibulum ante ipsum primis in faucibus orci
                 luctus et ultrices posuere cubilia curae; Donec eleifend, elit
                 in pharetra ultrices, eros metus rhoncus mauris, quis maximus
-                nibh neque et urna. Vestibulum quis mollis mauris, ac egestas
-                lectus. Cras massa sapien, bibendum quis justo nec, vulputate
-                mollis libero. Mauris facilisis nulla pellentesque dictum
-                finibus.
+                nibh neque et urna.
               </p>
             </div>
           </div>
@@ -133,15 +130,15 @@ export default function Nav() {
         }
 
         .nav__right__img__info--open {
-          height: 450px;
+          height: 425px;
         }
 
         .nav__right__img__info .img {
           border-radius: 150px;
-          height: 150px;
+          height: 100px;
           overflow: hidden;
-          width: 150px;
-          margin: 1rem 5rem;
+          width: 100px;
+          margin: 1rem 3rem;
         }
 
         .nav__right__img__info > p {
@@ -207,6 +204,20 @@ export default function Nav() {
 
         .nav__right__contact__link__3 {
           top: 9.8rem;
+        }
+
+        @media screen and (min-width: 500px) {
+          .nav__right__img__info--open {
+            height: 375px;
+          }
+
+          .nav__right__img__info .img {
+            border-radius: 150px;
+            height: 150px;
+            overflow: hidden;
+            width: 150px;
+            margin: 1rem 5rem;
+          }
         }
       `}</style>
     </nav>

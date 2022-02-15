@@ -5,9 +5,14 @@ import { colors, contact } from "../../utils";
 
 export default function Nav() {
   const [contactVisible, setContactVisible] = useState(false);
+  const [infoVisible, setInfoVisible] = useState(false);
 
   const clickContact = () => {
     contactVisible ? setContactVisible(false) : setContactVisible(true);
+  };
+
+  const clickPerfil = () => {
+    infoVisible ? setInfoVisible(false) : setInfoVisible(true);
   };
 
   return (
@@ -15,13 +20,41 @@ export default function Nav() {
       <div>
         <div>Logo</div>
         <div className="nav__right">
-          <div className="nav__right__img">
-            <Image
-              src="/perfil.jpg"
-              alt="Foto de perfil"
-              width={45}
-              height={45}
-            />
+          <div className="perfil">
+            <div className="nav__right__img" onClick={() => clickPerfil()}>
+              <Image
+                src="/perfil.jpg"
+                alt="Foto de perfil"
+                width={50}
+                height={50}
+              />
+            </div>
+            <div
+              className={
+                infoVisible
+                  ? "nav__right__img__info nav__right__img__info--open"
+                  : "nav__right__img__info"
+              }
+            >
+              <div className="img">
+                <Image
+                  src="/perfil.jpg"
+                  alt="Foto de perfil"
+                  width={150}
+                  height={150}
+                />
+              </div>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+                eu tempus velit. Vestibulum ante ipsum primis in faucibus orci
+                luctus et ultrices posuere cubilia curae; Donec eleifend, elit
+                in pharetra ultrices, eros metus rhoncus mauris, quis maximus
+                nibh neque et urna. Vestibulum quis mollis mauris, ac egestas
+                lectus. Cras massa sapien, bibendum quis justo nec, vulputate
+                mollis libero. Mauris facilisis nulla pellentesque dictum
+                finibus.
+              </p>
+            </div>
           </div>
           <div className="nav__right__contact">
             <button
@@ -77,16 +110,43 @@ export default function Nav() {
           justify-content: flex-end;
         }
 
-        .nav__right__img {
-          border-radius: 50px;
-          height: 45px;
-          overflow: hidden;
+        .nav__right > .perfil {
           transition: 0.3s;
-          width: 45px;
+          position: relative;
         }
 
-        .nav__right__img:hover {
-          transform: scale(1.05);
+        .nav__right__img {
+          border-radius: 50px;
+          height: 50px;
+          width: 50px;
+          overflow: hidden;
+        }
+
+        .nav__right__img__info {
+          background: ${colors.primary};
+          border-radius: 0 0 15px 15px;
+          position: absolute;
+          right: 0;
+          transition: 0.3s;
+          height: 0;
+          overflow: hidden;
+        }
+
+        .nav__right__img__info--open {
+          height: 450px;
+        }
+
+        .nav__right__img__info .img {
+          border-radius: 150px;
+          height: 150px;
+          overflow: hidden;
+          width: 150px;
+          margin: 1rem 5rem;
+        }
+
+        .nav__right__img__info > p {
+          padding: 0 1rem;
+          text-align: center;
         }
 
         .nav__right__contact {
@@ -99,24 +159,25 @@ export default function Nav() {
           border: none;
           border-radius: 100px;
           display: flex;
-          height: 40px;
+          height: 50px;
+          outline: none;
           justify-content: center;
           margin-left: 0.75rem;
           transform: rotate(-25deg);
           transition: 0.3s;
-          width: 40px;
+          width: 50px;
         }
 
         .nav__right__contact__btn:hover {
-          transform: scale(1.05) rotate(-30deg);
+          transform: rotate(-35deg);
         }
 
         .nav__right__contact__btn--open {
-          transform: scale(1.15) rotate(-40deg);
+          transform: rotate(-45deg);
         }
 
         .nav__right__contact__btn--open:hover {
-          transform: scale(1.05) rotate(-30deg);
+          transform: rotate(-35deg);
         }
 
         .nav__right__contact__link {
@@ -127,7 +188,7 @@ export default function Nav() {
           height: 35px;
           justify-content: center;
           position: absolute;
-          right: 5px;
+          right: 8px;
           top: -3.5rem;
           width: 35px;
         }
@@ -137,15 +198,15 @@ export default function Nav() {
         }
 
         .nav__right__contact__link__1 {
-          top: 3.5rem;
+          top: 3.8rem;
         }
 
         .nav__right__contact__link__2 {
-          top: 6.5rem;
+          top: 6.8rem;
         }
 
         .nav__right__contact__link__3 {
-          top: 9.5rem;
+          top: 9.8rem;
         }
       `}</style>
     </nav>

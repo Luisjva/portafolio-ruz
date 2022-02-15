@@ -126,11 +126,14 @@ export default function Nav() {
           right: 0;
           transition: 0.3s;
           height: 0;
+          top: 54px;
           overflow: hidden;
         }
 
         .nav__right__img__info--open {
           height: 425px;
+          overflow-y: auto;
+          max-height: 75vh;
         }
 
         .nav__right__img__info .img {

@@ -15,7 +15,14 @@ export default function Nav() {
       <div>
         <div>Logo</div>
         <div className="nav__right">
-          <p>foto de joras</p>
+          <div className="nav__right__img">
+            <Image
+              src="/perfil.jpg"
+              alt="Foto de perfil"
+              width={45}
+              height={45}
+            />
+          </div>
           <div className="nav__right__contact">
             <button
               className={
@@ -53,7 +60,6 @@ export default function Nav() {
           align-items: center;
           display: flex;
           justify-content: center;
-          height: 3rem;
         }
 
         nav > div {
@@ -61,7 +67,7 @@ export default function Nav() {
           color: #fff;
           display: grid;
           grid-template-columns: 1fr 2fr;
-          padding: 0 1rem;
+          padding: 0.25rem 1rem;
           width: 100%;
         }
 
@@ -69,6 +75,18 @@ export default function Nav() {
           align-items: center;
           display: flex;
           justify-content: flex-end;
+        }
+
+        .nav__right__img {
+          border-radius: 50px;
+          height: 45px;
+          overflow: hidden;
+          transition: 0.3s;
+          width: 45px;
+        }
+
+        .nav__right__img:hover {
+          transform: scale(1.05);
         }
 
         .nav__right__contact {
@@ -83,7 +101,7 @@ export default function Nav() {
           display: flex;
           height: 40px;
           justify-content: center;
-          margin-left: 1rem;
+          margin-left: 0.75rem;
           transform: rotate(-25deg);
           transition: 0.3s;
           width: 40px;

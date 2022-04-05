@@ -18,7 +18,14 @@ export default function Nav() {
   return (
     <nav>
       <div>
-        <div>Logo</div>
+        <div className="nav__left">
+          <Image
+            src="/firma.png"
+            alt="Foto de perfil"
+            width={65}
+            height={(618 * 65) / 854}
+          />
+        </div>
         <div className="nav__right">
           <div className="perfil">
             <div className="nav__right__img" onClick={() => clickPerfil()}>
@@ -101,6 +108,11 @@ export default function Nav() {
           width: 100%;
         }
 
+        .nav__left {
+          align-items: center;
+          display: flex;
+        }
+
         .nav__right {
           align-items: center;
           display: flex;
@@ -110,6 +122,7 @@ export default function Nav() {
         .nav__right > .perfil {
           transition: 0.3s;
           position: relative;
+          z-index: 100;
         }
 
         .nav__right__img {
@@ -191,6 +204,7 @@ export default function Nav() {
           right: 8px;
           top: -3.5rem;
           width: 35px;
+          z-index: 50;
         }
 
         .nav__right__contact__link:hover {

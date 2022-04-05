@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { useContext, useEffect, useState } from "react";
+
 import { ModalImgContext } from "../../pages/_app";
+import { colors } from "../../utils";
 
 export default function ModalImg() {
   const { modalImgOpen, setModalImgOpen, modalImgDates } =
@@ -34,6 +36,11 @@ export default function ModalImg() {
       ></div>
       <div className="modal-img__content" onClick={(e) => e.preventDefault}>
         <div className="modal-img__content__img"></div>
+        {modalImgDates.img.description && (
+          <div className="modal-img__content__description">
+            <h3>{modalImgDates.img.description}</h3>
+          </div>
+        )}
       </div>
       <style jsx>{`
         .modal-img__container {
@@ -74,8 +81,6 @@ export default function ModalImg() {
           left: 50%;
           position: absolute;
           top: 50%;
-          overflow: hidden;
-          overflow-y: auto;
           transform: translate(-50%, -50%);
           width: ${modalImgDates.img.width > modalImgDates.img.height ||
           height / width > modalImgDates.img.height / modalImgDates.img.width
@@ -83,6 +88,15 @@ export default function ModalImg() {
             : (modalImgDates.img.width * (height * 0.8)) /
               modalImgDates.img.height}px;
           max-height: 85vh;
+        }
+
+        .modal-img__content__description {
+          background: ${colors.primary};
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          padding: 0 1rem;
         }
 
         .modal-img__content__img {

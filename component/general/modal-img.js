@@ -36,11 +36,14 @@ export default function ModalImg() {
       ></div>
       <div className="modal-img__content" onClick={(e) => e.preventDefault}>
         <div className="modal-img__content__img"></div>
-        {modalImgDates.img.description && (
-          <div className="modal-img__content__description">
+        <div className="modal-img__content__description">
+          {modalImgDates.img.description && (
             <h3>{modalImgDates.img.description}</h3>
-          </div>
-        )}
+          )}
+          <p onClick={() => setModalImgOpen(false)}>
+            Para cerrar la imagen, presione aquí
+          </p>
+        </div>
       </div>
       <style jsx>{`
         .modal-img__container {
@@ -80,7 +83,7 @@ export default function ModalImg() {
               modalImgDates.img.width}px;
           left: 50%;
           position: absolute;
-          top: 50%;
+          top: 43%;
           transform: translate(-50%, -50%);
           width: ${modalImgDates.img.width > modalImgDates.img.height ||
           height / width > modalImgDates.img.height / modalImgDates.img.width
@@ -96,7 +99,36 @@ export default function ModalImg() {
           top: 100%;
           left: 0;
           width: 100%;
-          padding: 0 1rem;
+          padding: 1rem;
+        }
+
+        .modal-img__content__description > h3 {
+          margin-block-start: 0;
+          margin-block-end: 0.2rem;
+          text-align: center;
+        }
+
+        .modal-img__content__description > p {
+          animation-duration: 3s;
+          animation-iteration-count: infinite;
+          animation-name: visible;
+          cursor: pointer;
+          font-size: 0.7rem;
+          margin-block-start: 0;
+          margin-block-end: 0;
+          text-align: center;
+        }
+
+        @keyframes visible {
+          0% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0.5;
+          }
+          100% {
+            opacity: 1;
+          }
         }
 
         .modal-img__content__img {

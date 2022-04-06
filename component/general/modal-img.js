@@ -10,6 +10,8 @@ export default function ModalImg() {
   const [position, setPosition] = useState({ width: 0, height: 0 });
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
+  const [widthImg, setWidthImg] = useState(0);
+  const [heightImg, setHeightImg] = useState(0);
 
   useEffect(() => {
     setWidth(innerWidth);
@@ -21,6 +23,29 @@ export default function ModalImg() {
       setHeight(innerHeight);
     });
   }, [modalImgDates]);
+
+  useEffect(() => {
+    if (width > height) {
+      setWidthImg(
+        (modalImgDates.img.width * (height * 0.8)) / modalImgDates.img.height
+      );
+
+      setHeightImg(height * 0.8);
+    } else {
+      setWidthImg(
+        modalImgDates.img.height > modalImgDates.img.width
+          ? (modalImgDates.img.width * (height * 0.8)) /
+              modalImgDates.img.height
+          : width * 0.8
+      );
+
+      setHeightImg(
+        modalImgDates.img.height > modalImgDates.img.width
+          ? height * 0.8
+          : (modalImgDates.img.height * (width * 0.8)) / modalImgDates.img.width
+      );
+    }
+  }, [width, height, modalImgDates]);
 
   return (
     <div
@@ -36,13 +61,14 @@ export default function ModalImg() {
       ></div>
       <div className="modal-img__content" onClick={(e) => e.preventDefault}>
         <div className="modal-img__content__img"></div>
-        <div className="modal-img__content__description">
+        <div
+          onClick={() => setModalImgOpen(false)}
+          className="modal-img__content__description"
+        >
           {modalImgDates.img.description && (
             <h3>{modalImgDates.img.description}</h3>
           )}
-          <p onClick={() => setModalImgOpen(false)}>
-            Para cerrar la imagen, presione aquí
-          </p>
+          <p>Para cerrar la imagen, presione aquí</p>
         </div>
       </div>
       <style jsx>{`
@@ -68,7 +94,7 @@ export default function ModalImg() {
         }
 
         .modal-img__background {
-          background: #fff2;
+          background: #0007;
           height: 100%;
           width: 100%;
           cursor: pointer;
@@ -76,30 +102,24 @@ export default function ModalImg() {
 
         .modal-img__content {
           background: linear-gradient(#000, #000);
-          height: ${modalImgDates.img.height > modalImgDates.img.width &&
-          height / width < modalImgDates.img.height / modalImgDates.img.width
-            ? height * 0.8
-            : (modalImgDates.img.height * (width * 0.8)) /
-              modalImgDates.img.width}px;
+          height: ${heightImg}px;
           left: 50%;
           position: absolute;
           top: 43%;
           transform: translate(-50%, -50%);
-          width: ${modalImgDates.img.width > modalImgDates.img.height ||
-          height / width > modalImgDates.img.height / modalImgDates.img.width
-            ? width * 0.8
-            : (modalImgDates.img.width * (height * 0.8)) /
-              modalImgDates.img.height}px;
+          width: ${widthImg}px;
           max-height: 85vh;
         }
 
         .modal-img__content__description {
           background: ${colors.primary};
+          cursor: pointer;
           position: absolute;
           top: 100%;
           left: 0;
-          width: 100%;
           padding: 1rem;
+          transition: 0.3s;
+          width: 100%;
         }
 
         .modal-img__content__description > h3 {
@@ -112,7 +132,6 @@ export default function ModalImg() {
           animation-duration: 3s;
           animation-iteration-count: infinite;
           animation-name: visible;
-          cursor: pointer;
           font-size: 0.7rem;
           margin-block-start: 0;
           margin-block-end: 0;
@@ -135,16 +154,24 @@ export default function ModalImg() {
           background: url("${modalImgDates.img.name}");
           background-size: cover;
           background-position: center;
-          height: ${modalImgDates.img.height > modalImgDates.img.width &&
-          height / width < modalImgDates.img.height / modalImgDates.img.width
-            ? height * 0.8
-            : (modalImgDates.img.height * (width * 0.8)) /
-              modalImgDates.img.width}px;
-          width: ${modalImgDates.img.width > modalImgDates.img.height ||
-          height / width > modalImgDates.img.height / modalImgDates.img.width
-            ? width * 0.8
-            : (modalImgDates.img.width * (height * 0.8)) /
-              modalImgDates.img.height}px;
+          height: ${heightImg}px;
+          width: ${widthImg}px;
+        }
+
+        @media screen and (min-width: 500px) {
+          .modal-img__content {
+            left: 43%;
+            top: 50%;
+          }
+
+          .modal-img__content__description {
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            transform: translateX(-50%) translateY(-50%) rotate(-90deg)
+              translateY(50%);
+            width: ${heightImg}px;
+          }
         }
       `}</style>
     </div>

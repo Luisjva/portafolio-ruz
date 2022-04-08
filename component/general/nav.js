@@ -24,6 +24,7 @@ export default function Nav() {
             alt="Foto de perfil"
             width={65}
             height={(618 * 65) / 854}
+            priority={true}
           />
         </div>
         <div className="nav__right">
@@ -34,6 +35,7 @@ export default function Nav() {
                 alt="Foto de perfil"
                 width={50}
                 height={50}
+                priority={true}
               />
             </div>
             <div
@@ -49,6 +51,7 @@ export default function Nav() {
                   alt="Foto de perfil"
                   width={150}
                   height={150}
+                  priority={true}
                 />
               </div>
               <p>

@@ -22,7 +22,7 @@ export default function Pictures({ listImg, number }) {
   };
   return (
     <div className={`pictures-${number}`}>
-      {listImg.map((img) => {
+      {listImg.map((img, index) => {
         return (
           <div
             onClick={(e) => openModal(e, img)}
@@ -33,6 +33,7 @@ export default function Pictures({ listImg, number }) {
               src={img.name}
               alt="img chida"
               width={pictureWidth}
+              priority={index < 3 ? true : false}
               height={(img.height * pictureWidth) / img.width}
             />
           </div>

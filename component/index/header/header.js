@@ -61,6 +61,7 @@ export default function Header() {
         <Image
           src="/firma - Logo.png"
           alt="Logo de Joras"
+          priority={true}
           width={width < 500 ? width * 0.8 : width * 0.5}
           height={
             width < 500

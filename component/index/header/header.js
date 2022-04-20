@@ -74,7 +74,13 @@ export default function Header() {
         {contact.map((cont, index) => {
           return (
             <a key={index} href={cont.link}>
-              <Image src={cont.img} alt={cont.name} width="20" height="20" />
+              <Image
+                src={cont.img}
+                alt={cont.name}
+                width="20"
+                height="20"
+                priority
+              />
             </a>
           );
         })}

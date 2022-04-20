@@ -73,8 +73,8 @@ export default function Header() {
       <span>
         {contact.map((cont, index) => {
           return (
-            <a key={index} href="#">
-              <Image src="/contact.png" alt="Send" width="20" height="20" />
+            <a key={index} href={cont.link}>
+              <Image src={cont.img} alt={cont.name} width="20" height="20" />
             </a>
           );
         })}

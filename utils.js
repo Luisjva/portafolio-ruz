@@ -4,7 +4,28 @@ export const colors = {
   negro: "#000000",
 };
 
-export const contact = [{}, {}, {}];
+export const contact = [
+  {
+    name: "Twitter",
+    img: "/twitter.svg",
+    link: "https://twitter.com/JorasRuz?t=E2_kOtnHDtPy7ggn6j0Jnw&s=09",
+  },
+  {
+    name: "Instagram",
+    img: "/instagram.svg",
+    link: "https://instagram.com/joras_ruz?igshid=YmMyMTA2M2Y=",
+  },
+  {
+    name: "Youtube",
+    img: "/youtube.svg",
+    link: "https://youtube.com/c/JorasRuz",
+  },
+  {
+    name: "Fiverf",
+    img: "/fiverr.svg",
+    link: "https://es.fiverr.com/jorasruz?up_rollout=true",
+  },
+];
 
 export const galery = [
   {

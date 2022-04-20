@@ -78,7 +78,7 @@ export default function Nav() {
               return (
                 <a
                   key={index}
-                  href="#"
+                  href={cont.link}
                   style={{ transition: 0.3 * (index + 1) + "s" }}
                   className={
                     contactVisible
@@ -88,7 +88,12 @@ export default function Nav() {
                       : "nav__right__contact__link"
                   }
                 >
-                  <Image src="/contact.png" alt="Send" width="20" height="20" />
+                  <Image
+                    src={cont.img}
+                    alt={cont.name}
+                    width="20"
+                    height="20"
+                  />
                 </a>
               );
             })}
@@ -200,6 +205,7 @@ export default function Nav() {
           align-items: center;
           background-color: ${colors.yellow};
           border-radius: 100px;
+          cursor: pointer;
           display: flex;
           height: 35px;
           justify-content: center;
@@ -224,6 +230,10 @@ export default function Nav() {
 
         .nav__right__contact__link__3 {
           top: 9.8rem;
+        }
+
+        .nav__right__contact__link__4 {
+          top: 12.8rem;
         }
 
         @media screen and (min-width: 500px) {

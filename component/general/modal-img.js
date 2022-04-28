@@ -25,25 +25,32 @@ export default function ModalImg() {
   }, [modalImgDates]);
 
   useEffect(() => {
+    console.log(width, height, modalImgDates);
+    console.log(width > height);
     if (width > height) {
-      setWidthImg(
-        (modalImgDates.img.width * (height * 0.8)) / modalImgDates.img.height
-      );
-
-      setHeightImg(height * 0.8);
+      if (modalImgDates.img.width > modalImgDates.img.height) {
+        setWidthImg(width * 0.75);
+        setHeightImg(
+          (modalImgDates.img.height * (width * 0.75)) / modalImgDates.img.width
+        );
+      } else {
+        setWidthImg(
+          (modalImgDates.img.width * (height * 0.75)) / modalImgDates.img.height
+        );
+        setHeightImg(height * 0.75);
+      }
     } else {
-      setWidthImg(
-        modalImgDates.img.height > modalImgDates.img.width
-          ? (modalImgDates.img.width * (height * 0.8)) /
-              modalImgDates.img.height
-          : width * 0.8
-      );
-
-      setHeightImg(
-        modalImgDates.img.height > modalImgDates.img.width
-          ? height * 0.8
-          : (modalImgDates.img.height * (width * 0.8)) / modalImgDates.img.width
-      );
+      if (modalImgDates.img.width > modalImgDates.img.height) {
+        setWidthImg(
+          (modalImgDates.img.width * (height * 0.75)) / modalImgDates.img.height
+        );
+        setHeightImg(height * 0.75);
+      } else {
+        setWidthImg(width * 0.75);
+        setHeightImg(
+          (modalImgDates.img.height * (width * 0.75)) / modalImgDates.img.width
+        );
+      }
     }
   }, [width, height, modalImgDates]);
 
@@ -108,7 +115,6 @@ export default function ModalImg() {
           top: 43%;
           transform: translate(-50%, -50%);
           width: ${widthImg}px;
-          max-height: 85vh;
         }
 
         .modal-img__content__description {

@@ -55,11 +55,20 @@ export default function Nav() {
                 />
               </div>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                eu tempus velit. Vestibulum ante ipsum primis in faucibus orci
-                luctus et ultrices posuere cubilia curae; Donec eleifend, elit
-                in pharetra ultrices, eros metus rhoncus mauris, quis maximus
-                nibh neque et urna.
+                Soy un ilustrador con experiencia en diseño gráfico y artes
+                audiovisuales. Usando como inspiración el estilo retro;
+                películas, videojuegos, música y series animadas de los 70s, 80s
+                y 90s en sus toques más dinámicos y radicales tan
+                característicos de aquellas épocas. Además de referirme a las
+                estéticas y visuales relacionadas a géneros musicales como guía,
+                como el Synthwave, Vaporwave, Future Funk, Frenchhouse y Rock.
+                En cada pieza procuro mantener trazos con textura y efectos
+                rústicos del arte en físico, para dar la vibra orgánica de la
+                era de oro del cómic. Unido a esto, el coloreado y los detalles,
+                propio de las impresiones publicitarias de los 50s, proporcionan
+                realismo y profundidad. Y, en contraste, colores vivos y efectos
+                digitales para dar como resultado una composición del retro
+                futurismo.
               </p>
             </div>
           </div>
